@@ -13,6 +13,12 @@
 		F6473D8E1C9E802E000E7D50 /* UCI9DC_S8_Instagram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6473D8C1C9E802E000E7D50 /* UCI9DC_S8_Instagram.xcdatamodeld */; };
 		F6473D901C9E802E000E7D50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6473D8F1C9E802E000E7D50 /* Assets.xcassets */; };
 		F6473D931C9E802E000E7D50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6473D911C9E802E000E7D50 /* LaunchScreen.storyboard */; };
+		F6473D9C1C9E80F4000E7D50 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6473D9A1C9E80F4000E7D50 /* Bolts.framework */; };
+		F6473D9D1C9E80F4000E7D50 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6473D9B1C9E80F4000E7D50 /* Parse.framework */; };
+		F6473D9F1C9E84F9000E7D50 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6473D9E1C9E84F9000E7D50 /* AudioToolbox.framework */; };
+		F6473DA11C9E8504000E7D50 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6473DA01C9E8504000E7D50 /* SystemConfiguration.framework */; };
+		F6473DA31C9E8516000E7D50 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F6473DA21C9E8516000E7D50 /* libstdc++.6.tbd */; };
+		F6473DA51C9E8525000E7D50 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F6473DA41C9E8525000E7D50 /* libsqlite3.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		F6473D8F1C9E802E000E7D50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6473D921C9E802E000E7D50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6473D941C9E802E000E7D50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6473D9A1C9E80F4000E7D50 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		F6473D9B1C9E80F4000E7D50 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		F6473D9E1C9E84F9000E7D50 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		F6473DA01C9E8504000E7D50 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F6473DA21C9E8516000E7D50 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
+		F6473DA41C9E8525000E7D50 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +43,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6473DA51C9E8525000E7D50 /* libsqlite3.tbd in Frameworks */,
+				F6473DA31C9E8516000E7D50 /* libstdc++.6.tbd in Frameworks */,
+				F6473DA11C9E8504000E7D50 /* SystemConfiguration.framework in Frameworks */,
+				F6473D9F1C9E84F9000E7D50 /* AudioToolbox.framework in Frameworks */,
+				F6473D9D1C9E80F4000E7D50 /* Parse.framework in Frameworks */,
+				F6473D9C1C9E80F4000E7D50 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				F6473D841C9E802E000E7D50 /* UCI9DC S8 Instagram */,
+				F6473DA61C9E8564000E7D50 /* Frameworks */,
 				F6473D831C9E802E000E7D50 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,6 +84,19 @@
 				F6473D8C1C9E802E000E7D50 /* UCI9DC_S8_Instagram.xcdatamodeld */,
 			);
 			path = "UCI9DC S8 Instagram";
+			sourceTree = "<group>";
+		};
+		F6473DA61C9E8564000E7D50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6473DA41C9E8525000E7D50 /* libsqlite3.tbd */,
+				F6473DA21C9E8516000E7D50 /* libstdc++.6.tbd */,
+				F6473DA01C9E8504000E7D50 /* SystemConfiguration.framework */,
+				F6473D9E1C9E84F9000E7D50 /* AudioToolbox.framework */,
+				F6473D9A1C9E80F4000E7D50 /* Bolts.framework */,
+				F6473D9B1C9E80F4000E7D50 /* Parse.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +131,7 @@
 				TargetAttributes = {
 					F6473D811C9E802E000E7D50 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 5C9TGFA48W;
 					};
 				};
 			};
@@ -251,6 +284,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "UCI9DC S8 Instagram/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stansidel.UCI9DC-S8-Instagram";
@@ -262,6 +300,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "UCI9DC S8 Instagram/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.stansidel.UCI9DC-S8-Instagram";
