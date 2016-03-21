@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let configuration = ParseClientConfiguration {
             $0.applicationId = "udemyParse"
-            $0.clientKey = "dhh#32$jhdksjh*37Hlkj^%$dn"
+            $0.clientKey = "dhh32hdksjh37Hlkjdn"
             $0.server = "https://udemy-instagram.herokuapp.com/parse"
         }
         Parse.initializeWithConfiguration(configuration)
