@@ -13,12 +13,17 @@ import CoreData
 class User: NSManagedObject {
     static let entityName = "User"
 
-    static func createUpdateUser(withId id: String, name: String?, isFollowed: Bool, inContext context: NSManagedObjectContext) throws {
+    static func getById(id: String, inContext context: NSManagedObjectContext) throws -> User? {
         let request = NSFetchRequest(entityName: User.entityName)
         request.predicate = NSPredicate(format: "id == %@", id)
 
         let objects = try! context.executeFetchRequest(request)
-        if let user = objects.first as? User {
+        return objects.first as? User
+    }
+
+    static func createUpdateUser(withId id: String, name: String?, isFollowed: Bool, inContext context: NSManagedObjectContext) throws {
+        let user = try! getById(id, inContext: context)
+        if let user = user {
             user.name = name
             user.followed = isFollowed
         } else {

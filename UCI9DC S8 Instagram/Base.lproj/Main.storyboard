@@ -103,7 +103,7 @@
             </objects>
             <point key="canvasLocation" x="-30" y="-211"/>
         </scene>
-        <!--Root View Controller-->
+        <!--User List-->
         <scene sceneID="Pv3-0Z-dL3">
             <objects>
                 <tableViewController id="lg0-7R-aGm" customClass="UsersTVC" customModule="UCI9DC_S8_Instagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -135,7 +135,7 @@
                             <outlet property="delegate" destination="lg0-7R-aGm" id="WrL-eh-KLZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="acT-gJ-BTY"/>
+                    <navigationItem key="navigationItem" title="User List" id="acT-gJ-BTY"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ozp-w8-VJ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

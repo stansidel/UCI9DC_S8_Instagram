@@ -82,6 +82,70 @@ class UsersWorker {
             }
         })
     }
+
+    func followUser(withId id: String, inContext context: NSManagedObjectContext, handler: ((Bool) -> Void)?) {
+        guard let currentUserId = PFUser.currentUser()?.objectId else {
+            handler?(false)
+            return
+        }
+        let following = PFObject(className: "Followers")
+        following["following"] = id
+        following["follower"] = currentUserId
+        following.saveInBackgroundWithBlock { (success, error) in
+            if (success) {
+                self.setUserDb(withId: id, followed: true, inContext: context)
+            } else {
+                NSLog("Error updating following. Error: \(error?.localizedDescription)")
+            }
+            handler?(success)
+        }
+    }
+
+    func unfollowUser(withId id: String, inContext context: NSManagedObjectContext, handler: ((Bool) -> Void)?) {
+        guard let currentUserId = PFUser.currentUser()?.objectId else {
+            handler?(false)
+            return
+        }
+        let query = PFQuery(className: "Followers")
+        query.whereKey("follower", equalTo: currentUserId)
+        query.whereKey("following", equalTo: id)
+
+        query.findObjectsInBackgroundWithBlock { (objects, error) in
+            if let objects = objects where objects.count > 0 {
+                for object in objects {
+                    object.deleteInBackgroundWithBlock({ (success, error) in
+                        if success {
+                            self.setUserDb(withId: id, followed: false, inContext: context)
+                        } else {
+                            NSLog("Unable to delete link follower \(currentUserId) - following \(id). Error: \(error?.localizedDescription)")
+                        }
+                        handler?(success)
+                    })
+                }
+            } else {
+                NSLog("Unable to find link follower \(currentUserId) - following \(id). Error: \(error?.localizedDescription)")
+                handler?(false)
+            }
+        }
+    }
+
+    private func setUserDb(withId id: String, followed: Bool, inContext context: NSManagedObjectContext) {
+        var user: User?
+        do {
+            user = try User.getById(id, inContext: context)
+        } catch let error as NSError {
+            NSLog("Error while retrieving user with id \(id). Error: \(error)")
+        }
+        if let user = user {
+            user.followed = followed
+            do {
+                try context.save()
+            } catch let error as NSError {
+                NSLog("Error while saving context for following user. Error: \(error)")
+            }
+        }
+    }
+
     private func removeUsersNotInList(idsList: [String], inContext context: NSManagedObjectContext) throws {
         let request = NSFetchRequest(entityName: User.entityName)
         request.predicate = NSPredicate(format: "NOT(id IN %@)", idsList)

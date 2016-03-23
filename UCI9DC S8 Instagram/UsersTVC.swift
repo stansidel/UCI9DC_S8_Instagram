@@ -11,11 +11,12 @@ import CoreData
 
 class UsersTVC: CoreDataTableViewController {
     private var context: NSManagedObjectContext!
+    private let usersWorker = UsersWorker()
 
     override func viewDidLoad() {
         context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         super.viewDidLoad()
-        UsersWorker().loadAllUsers(inContext: context) { (success, error) in
+        usersWorker.loadAllUsers(inContext: context) { (success, error) in
             print("Loading users finished. \(success). \(error)")
         }
         initializeFetchedResultsController()
@@ -30,6 +31,33 @@ class UsersTVC: CoreDataTableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("User", forIndexPath: indexPath)
         configureCell(cell, indexPath: indexPath)
         return cell
+    }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let user = fetchedResultsController!.objectAtIndexPath(indexPath) as! User
+        guard let userId = user.id else {
+            NSLog("Cannot get id for user \(user).")
+            return
+        }
+        if user.followed {
+            usersWorker.unfollowUser(withId: userId, inContext: context, handler: { (success) in
+                if success {
+                    self.reloadCell(atIndexPath: indexPath)
+                }
+            })
+        } else {
+            usersWorker.followUser(withId: userId, inContext: context, handler: { (success) in
+                if success {
+                    self.reloadCell(atIndexPath: indexPath)
+                }
+            })
+        }
+    }
+
+    private func reloadCell(atIndexPath indexPath: NSIndexPath) {
+        tableView.beginUpdates()
+        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        tableView.endUpdates()
     }
 
     private func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
