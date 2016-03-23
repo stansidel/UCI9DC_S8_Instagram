@@ -19,6 +19,11 @@
 		F6473DA11C9E8504000E7D50 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6473DA01C9E8504000E7D50 /* SystemConfiguration.framework */; };
 		F6473DA31C9E8516000E7D50 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F6473DA21C9E8516000E7D50 /* libstdc++.6.tbd */; };
 		F6473DA51C9E8525000E7D50 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F6473DA41C9E8525000E7D50 /* libsqlite3.tbd */; };
+		F6D3BA371CA28982006BC870 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3BA351CA28982006BC870 /* User+CoreDataProperties.swift */; };
+		F6D3BA381CA28982006BC870 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3BA361CA28982006BC870 /* User.swift */; };
+		F6D3BA3A1CA2899A006BC870 /* UsersWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3BA391CA2899A006BC870 /* UsersWorker.swift */; };
+		F6D3BA3C1CA29960006BC870 /* UsersTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3BA3B1CA29960006BC870 /* UsersTVC.swift */; };
+		F6D3BA3E1CA29A44006BC870 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3BA3D1CA29A44006BC870 /* CoreDataTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,11 @@
 		F6473DA01C9E8504000E7D50 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F6473DA21C9E8516000E7D50 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
 		F6473DA41C9E8525000E7D50 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		F6D3BA351CA28982006BC870 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F6D3BA361CA28982006BC870 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F6D3BA391CA2899A006BC870 /* UsersWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersWorker.swift; sourceTree = "<group>"; };
+		F6D3BA3B1CA29960006BC870 /* UsersTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTVC.swift; sourceTree = "<group>"; };
+		F6D3BA3D1CA29A44006BC870 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,9 +85,14 @@
 		F6473D841C9E802E000E7D50 /* UCI9DC S8 Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				F6D3BA351CA28982006BC870 /* User+CoreDataProperties.swift */,
+				F6D3BA361CA28982006BC870 /* User.swift */,
 				F6473D851C9E802E000E7D50 /* AppDelegate.swift */,
+				F6D3BA391CA2899A006BC870 /* UsersWorker.swift */,
 				F6473D871C9E802E000E7D50 /* ViewController.swift */,
 				F6473D891C9E802E000E7D50 /* Main.storyboard */,
+				F6D3BA3B1CA29960006BC870 /* UsersTVC.swift */,
+				F6D3BA3D1CA29A44006BC870 /* CoreDataTableViewController.swift */,
 				F6473D8F1C9E802E000E7D50 /* Assets.xcassets */,
 				F6473D911C9E802E000E7D50 /* LaunchScreen.storyboard */,
 				F6473D941C9E802E000E7D50 /* Info.plist */,
@@ -172,7 +187,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6473D8E1C9E802E000E7D50 /* UCI9DC_S8_Instagram.xcdatamodeld in Sources */,
+				F6D3BA3A1CA2899A006BC870 /* UsersWorker.swift in Sources */,
+				F6D3BA3E1CA29A44006BC870 /* CoreDataTableViewController.swift in Sources */,
 				F6473D881C9E802E000E7D50 /* ViewController.swift in Sources */,
+				F6D3BA371CA28982006BC870 /* User+CoreDataProperties.swift in Sources */,
+				F6D3BA381CA28982006BC870 /* User.swift in Sources */,
+				F6D3BA3C1CA29960006BC870 /* UsersTVC.swift in Sources */,
 				F6473D861C9E802E000E7D50 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +351,7 @@
 				F6473D991C9E802E000E7D50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

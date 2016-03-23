@@ -35,6 +35,13 @@ class ViewController: UIViewController {
         super.viewDidLayoutSubviews()
         activityIndicator?.center = self.view.center
     }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if PFUser.currentUser() != nil {
+            performSegueWithIdentifier("Login", sender: self)
+        }
+    }
     
     @IBAction func actionButtonPressed(sender: UIButton) {
         if checkFieldsAndShowError() {
@@ -91,8 +98,7 @@ class ViewController: UIViewController {
         user.signUpInBackgroundWithBlock { (success, error) -> Void in
             self.stopBlockingUI()
             if success {
-                // TODO: Successfully signed up
-                print("Successfully signed up")
+                self.performSegueWithIdentifier("Login", sender: self)
             } else {
                 var errorMessage = NSLocalizedString("Please try again later", comment: "Auth form general network error")
                 if let error = error {
@@ -109,8 +115,7 @@ class ViewController: UIViewController {
         PFUser.logInWithUsernameInBackground(usernameTextField.text!, password: passwordTextField.text!) { (user, error) -> Void in
             self.stopBlockingUI()
             if error == nil {
-                // TODO: Successfully logged in
-                print("Successfully logged in")
+                self.performSegueWithIdentifier("Login", sender: self)
             } else {
                 var errorMessage = NSLocalizedString("Please try again later", comment: "Auth form general network error")
                 if let error = error {
