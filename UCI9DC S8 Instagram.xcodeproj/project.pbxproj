@@ -24,6 +24,8 @@
 		F6D3BA3A1CA2899A006BC870 /* UsersWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3BA391CA2899A006BC870 /* UsersWorker.swift */; };
 		F6D3BA3C1CA29960006BC870 /* UsersTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3BA3B1CA29960006BC870 /* UsersTVC.swift */; };
 		F6D3BA3E1CA29A44006BC870 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3BA3D1CA29A44006BC870 /* CoreDataTableViewController.swift */; };
+		F6D5E82C1CA409E700A474DD /* ImagePostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5E82B1CA409E700A474DD /* ImagePostingViewController.swift */; };
+		F6D5E82E1CA40B7400A474DD /* ImagesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5E82D1CA40B7400A474DD /* ImagesWorker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		F6D3BA391CA2899A006BC870 /* UsersWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersWorker.swift; sourceTree = "<group>"; };
 		F6D3BA3B1CA29960006BC870 /* UsersTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTVC.swift; sourceTree = "<group>"; };
 		F6D3BA3D1CA29A44006BC870 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
+		F6D5E82B1CA409E700A474DD /* ImagePostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePostingViewController.swift; sourceTree = "<group>"; };
+		F6D5E82D1CA40B7400A474DD /* ImagesWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesWorker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,14 +89,10 @@
 		F6473D841C9E802E000E7D50 /* UCI9DC S8 Instagram */ = {
 			isa = PBXGroup;
 			children = (
-				F6D3BA351CA28982006BC870 /* User+CoreDataProperties.swift */,
-				F6D3BA361CA28982006BC870 /* User.swift */,
 				F6473D851C9E802E000E7D50 /* AppDelegate.swift */,
-				F6D3BA391CA2899A006BC870 /* UsersWorker.swift */,
-				F6473D871C9E802E000E7D50 /* ViewController.swift */,
+				F6D5E8301CA40BE000A474DD /* Models */,
+				F6D5E82F1CA40BCF00A474DD /* Controllers */,
 				F6473D891C9E802E000E7D50 /* Main.storyboard */,
-				F6D3BA3B1CA29960006BC870 /* UsersTVC.swift */,
-				F6D3BA3D1CA29A44006BC870 /* CoreDataTableViewController.swift */,
 				F6473D8F1C9E802E000E7D50 /* Assets.xcassets */,
 				F6473D911C9E802E000E7D50 /* LaunchScreen.storyboard */,
 				F6473D941C9E802E000E7D50 /* Info.plist */,
@@ -112,6 +112,28 @@
 				F6473D9B1C9E80F4000E7D50 /* Parse.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F6D5E82F1CA40BCF00A474DD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F6D3BA3D1CA29A44006BC870 /* CoreDataTableViewController.swift */,
+				F6473D871C9E802E000E7D50 /* ViewController.swift */,
+				F6D5E82B1CA409E700A474DD /* ImagePostingViewController.swift */,
+				F6D3BA3B1CA29960006BC870 /* UsersTVC.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		F6D5E8301CA40BE000A474DD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F6D3BA351CA28982006BC870 /* User+CoreDataProperties.swift */,
+				F6D3BA361CA28982006BC870 /* User.swift */,
+				F6D3BA391CA2899A006BC870 /* UsersWorker.swift */,
+				F6D5E82D1CA40B7400A474DD /* ImagesWorker.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +211,9 @@
 				F6473D8E1C9E802E000E7D50 /* UCI9DC_S8_Instagram.xcdatamodeld in Sources */,
 				F6D3BA3A1CA2899A006BC870 /* UsersWorker.swift in Sources */,
 				F6D3BA3E1CA29A44006BC870 /* CoreDataTableViewController.swift in Sources */,
+				F6D5E82C1CA409E700A474DD /* ImagePostingViewController.swift in Sources */,
 				F6473D881C9E802E000E7D50 /* ViewController.swift in Sources */,
+				F6D5E82E1CA40B7400A474DD /* ImagesWorker.swift in Sources */,
 				F6D3BA371CA28982006BC870 /* User+CoreDataProperties.swift in Sources */,
 				F6D3BA381CA28982006BC870 /* User.swift in Sources */,
 				F6D3BA3C1CA29960006BC870 /* UsersTVC.swift in Sources */,
