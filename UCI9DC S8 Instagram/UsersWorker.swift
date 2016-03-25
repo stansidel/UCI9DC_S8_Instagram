@@ -156,6 +156,19 @@ class UsersWorker {
         }
     }
 
+    func logout(handler: ((NSError?) -> Void)?) {
+        func dispatch_in_calling(operation: ()->Void) {
+            dispatch_async(dispatch_get_main_queue(), {
+                operation()
+            })
+        }
+        PFUser.logOutInBackgroundWithBlock { (error) in
+            dispatch_in_calling({
+                handler?(error)
+            })
+        }
+    }
+
     private func setUserDb(withId id: String, followed: Bool, inContext context: NSManagedObjectContext) {
         var user: User?
         do {

@@ -34,6 +34,16 @@ class UsersTVC: CoreDataTableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func logout(sender: AnyObject) {
+        usersWorker.logout { (error) in
+            if error == nil {
+                self.performSegueWithIdentifier("UnwindLogout", sender: self)
+            } else {
+                NSLog("Logging out failed. Error: \(error!.localizedDescription)")
+            }
+        }
+    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("User", forIndexPath: indexPath)

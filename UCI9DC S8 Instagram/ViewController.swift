@@ -57,6 +57,10 @@ class ViewController: UIViewController {
     @IBAction func switchModeButtonPressed(sender: UIButton) {
         setMode(currentMode == .Registration ? .Login : .Registration)
     }
+
+    @IBAction func unwindLogout(segue: UIStoryboardSegue) {
+        
+    }
     
     private func setMode(mode: FormMode) {
         currentMode = mode
@@ -98,7 +102,7 @@ class ViewController: UIViewController {
         user.signUpInBackgroundWithBlock { (success, error) -> Void in
             self.stopBlockingUI()
             if success {
-                self.performSegueWithIdentifier("Login", sender: self)
+                self.processAfterLogin()
             } else {
                 var errorMessage = NSLocalizedString("Please try again later", comment: "Auth form general network error")
                 if let error = error {
@@ -115,7 +119,7 @@ class ViewController: UIViewController {
         PFUser.logInWithUsernameInBackground(usernameTextField.text!, password: passwordTextField.text!) { (user, error) -> Void in
             self.stopBlockingUI()
             if error == nil {
-                self.performSegueWithIdentifier("Login", sender: self)
+                self.processAfterLogin()
             } else {
                 var errorMessage = NSLocalizedString("Please try again later", comment: "Auth form general network error")
                 if let error = error {
@@ -126,6 +130,12 @@ class ViewController: UIViewController {
             }
 
         }
+    }
+
+    private func processAfterLogin() {
+        performSegueWithIdentifier("Login", sender: self)
+        usernameTextField.text = nil
+        passwordTextField.text = nil
     }
     
     private func checkFieldsAndShowError() -> Bool {
