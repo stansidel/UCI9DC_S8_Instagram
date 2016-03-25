@@ -231,11 +231,15 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ix-QF-5o0">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="530"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="7ox-MC-aEa">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" image="placeholder.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="7ox-MC-aEa">
                                                 <rect key="frame" x="20" y="8" width="560" height="400"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" priority="250" constant="500" id="6HR-sc-ehn"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="GWD-mY-w4h" appends="YES" id="xbC-AR-vwO"/>
+                                                </connections>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9X0-lz-ovu">
                                                 <rect key="frame" x="240" y="416" width="121" height="30"/>
@@ -303,6 +307,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xcL-ik-w6B" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="oSE-RZ-5kh" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="GWD-mY-w4h">
+                    <connections>
+                        <action selector="chooseImage:" destination="W5u-Bv-PK7" id="jTD-Vp-Gdd"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1090" y="-137"/>
         </scene>
@@ -323,4 +332,7 @@
             <point key="canvasLocation" x="270" y="-885"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="placeholder.jpg" width="1280" height="800"/>
+    </resources>
 </document>
