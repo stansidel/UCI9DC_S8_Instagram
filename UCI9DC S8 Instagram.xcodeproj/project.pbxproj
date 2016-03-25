@@ -19,6 +19,8 @@
 		F6473DA11C9E8504000E7D50 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6473DA01C9E8504000E7D50 /* SystemConfiguration.framework */; };
 		F6473DA31C9E8516000E7D50 /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F6473DA21C9E8516000E7D50 /* libstdc++.6.tbd */; };
 		F6473DA51C9E8525000E7D50 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F6473DA41C9E8525000E7D50 /* libsqlite3.tbd */; };
+		F6A6198C1CA5472F00BDBDB5 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A6198B1CA5472F00BDBDB5 /* Feed.swift */; };
+		F6A6198E1CA54BD500BDBDB5 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A6198D1CA54BD500BDBDB5 /* UIViewControllerExtensions.swift */; };
 		F6D3BA371CA28982006BC870 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3BA351CA28982006BC870 /* User+CoreDataProperties.swift */; };
 		F6D3BA381CA28982006BC870 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3BA361CA28982006BC870 /* User.swift */; };
 		F6D3BA3A1CA2899A006BC870 /* UsersWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3BA391CA2899A006BC870 /* UsersWorker.swift */; };
@@ -26,6 +28,8 @@
 		F6D3BA3E1CA29A44006BC870 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3BA3D1CA29A44006BC870 /* CoreDataTableViewController.swift */; };
 		F6D5E82C1CA409E700A474DD /* ImagePostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5E82B1CA409E700A474DD /* ImagePostingViewController.swift */; };
 		F6D5E82E1CA40B7400A474DD /* ImagesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5E82D1CA40B7400A474DD /* ImagesWorker.swift */; };
+		F6F5A55E1CA51F7800BD6CF8 /* FeedTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F5A55D1CA51F7800BD6CF8 /* FeedTVCell.swift */; };
+		F6F5A5601CA51FE100BD6CF8 /* FeedTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F5A55F1CA51FE100BD6CF8 /* FeedTVC.swift */; };
 		F6F5A5621CA525CE00BD6CF8 /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6F5A5611CA525CE00BD6CF8 /* placeholder.jpg */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +48,8 @@
 		F6473DA01C9E8504000E7D50 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F6473DA21C9E8516000E7D50 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
 		F6473DA41C9E8525000E7D50 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		F6A6198B1CA5472F00BDBDB5 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		F6A6198D1CA54BD500BDBDB5 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		F6D3BA351CA28982006BC870 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F6D3BA361CA28982006BC870 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F6D3BA391CA2899A006BC870 /* UsersWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersWorker.swift; sourceTree = "<group>"; };
@@ -51,6 +57,8 @@
 		F6D3BA3D1CA29A44006BC870 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		F6D5E82B1CA409E700A474DD /* ImagePostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePostingViewController.swift; sourceTree = "<group>"; };
 		F6D5E82D1CA40B7400A474DD /* ImagesWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesWorker.swift; sourceTree = "<group>"; };
+		F6F5A55D1CA51F7800BD6CF8 /* FeedTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTVCell.swift; sourceTree = "<group>"; };
+		F6F5A55F1CA51FE100BD6CF8 /* FeedTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTVC.swift; sourceTree = "<group>"; };
 		F6F5A5611CA525CE00BD6CF8 /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +104,7 @@
 				F6D5E8301CA40BE000A474DD /* Models */,
 				F6D5E82F1CA40BCF00A474DD /* Controllers */,
 				F6473D891C9E802E000E7D50 /* Main.storyboard */,
+				F6F5A55D1CA51F7800BD6CF8 /* FeedTVCell.swift */,
 				F6473D8F1C9E802E000E7D50 /* Assets.xcassets */,
 				F6473D911C9E802E000E7D50 /* LaunchScreen.storyboard */,
 				F6473D941C9E802E000E7D50 /* Info.plist */,
@@ -122,8 +131,10 @@
 			children = (
 				F6D3BA3D1CA29A44006BC870 /* CoreDataTableViewController.swift */,
 				F6473D871C9E802E000E7D50 /* ViewController.swift */,
+				F6A6198D1CA54BD500BDBDB5 /* UIViewControllerExtensions.swift */,
 				F6D5E82B1CA409E700A474DD /* ImagePostingViewController.swift */,
 				F6D3BA3B1CA29960006BC870 /* UsersTVC.swift */,
+				F6F5A55F1CA51FE100BD6CF8 /* FeedTVC.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -135,6 +146,7 @@
 				F6D3BA361CA28982006BC870 /* User.swift */,
 				F6D3BA391CA2899A006BC870 /* UsersWorker.swift */,
 				F6D5E82D1CA40B7400A474DD /* ImagesWorker.swift */,
+				F6A6198B1CA5472F00BDBDB5 /* Feed.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -213,10 +225,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6473D8E1C9E802E000E7D50 /* UCI9DC_S8_Instagram.xcdatamodeld in Sources */,
+				F6A6198C1CA5472F00BDBDB5 /* Feed.swift in Sources */,
 				F6D3BA3A1CA2899A006BC870 /* UsersWorker.swift in Sources */,
 				F6D3BA3E1CA29A44006BC870 /* CoreDataTableViewController.swift in Sources */,
 				F6D5E82C1CA409E700A474DD /* ImagePostingViewController.swift in Sources */,
 				F6473D881C9E802E000E7D50 /* ViewController.swift in Sources */,
+				F6A6198E1CA54BD500BDBDB5 /* UIViewControllerExtensions.swift in Sources */,
+				F6F5A5601CA51FE100BD6CF8 /* FeedTVC.swift in Sources */,
+				F6F5A55E1CA51F7800BD6CF8 /* FeedTVCell.swift in Sources */,
 				F6D5E82E1CA40B7400A474DD /* ImagesWorker.swift in Sources */,
 				F6D3BA371CA28982006BC870 /* User+CoreDataProperties.swift in Sources */,
 				F6D3BA381CA28982006BC870 /* User.swift in Sources */,

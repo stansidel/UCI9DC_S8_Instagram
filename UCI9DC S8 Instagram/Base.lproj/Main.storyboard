@@ -136,6 +136,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="User List" id="acT-gJ-BTY">
+                        <barButtonItem key="leftBarButtonItem" title="Feed" id="3mn-C6-I15">
+                            <connections>
+                                <segue destination="wpe-2d-v1g" kind="show" id="546-up-wp9"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add Photo" id="Fde-Hf-DoF">
                             <connections>
                                 <segue destination="W5u-Bv-PK7" kind="show" id="Qzw-Ag-Wxy"/>
@@ -146,6 +151,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ozp-w8-VJ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1090" y="-885"/>
+        </scene>
+        <!--FeedTVC-->
+        <scene sceneID="E3H-93-FZb">
+            <objects>
+                <tableViewController id="wpe-2d-v1g" customClass="FeedTVC" customModule="UCI9DC_S8_Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="248" sectionHeaderHeight="28" sectionFooterHeight="28" id="1oo-dX-zBy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedCell" rowHeight="248" id="efA-LQ-uzi" customClass="FeedTVCell" customModule="UCI9DC_S8_Instagram" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="248"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="efA-LQ-uzi" id="5Vf-ld-89s">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="247"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IK4-xE-5HL">
+                                            <rect key="frame" x="8" y="8" width="584" height="178"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lE6-hL-beD">
+                                            <rect key="frame" x="8" y="223" width="584" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vA-Ju-Viw">
+                                            <rect key="frame" x="279" y="194" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="IK4-xE-5HL" firstAttribute="leading" secondItem="5Vf-ld-89s" secondAttribute="leadingMargin" id="7to-r4-99L"/>
+                                        <constraint firstItem="lE6-hL-beD" firstAttribute="top" secondItem="1vA-Ju-Viw" secondAttribute="bottom" constant="8" id="CI4-BN-2UC"/>
+                                        <constraint firstItem="1vA-Ju-Viw" firstAttribute="top" secondItem="IK4-xE-5HL" secondAttribute="bottom" constant="8" id="CyW-45-0wv"/>
+                                        <constraint firstItem="lE6-hL-beD" firstAttribute="trailing" secondItem="5Vf-ld-89s" secondAttribute="trailingMargin" id="FVK-lw-XED"/>
+                                        <constraint firstItem="IK4-xE-5HL" firstAttribute="top" secondItem="5Vf-ld-89s" secondAttribute="topMargin" id="VNs-Lt-YoZ"/>
+                                        <constraint firstItem="lE6-hL-beD" firstAttribute="leading" secondItem="5Vf-ld-89s" secondAttribute="leadingMargin" id="a5e-oM-XhX"/>
+                                        <constraint firstItem="lE6-hL-beD" firstAttribute="bottom" secondItem="5Vf-ld-89s" secondAttribute="bottomMargin" id="ari-vM-LwB"/>
+                                        <constraint firstItem="IK4-xE-5HL" firstAttribute="trailing" secondItem="5Vf-ld-89s" secondAttribute="trailingMargin" id="eLY-Nb-8Bv"/>
+                                        <constraint firstItem="1vA-Ju-Viw" firstAttribute="centerX" secondItem="5Vf-ld-89s" secondAttribute="centerX" id="fCc-lf-sTR"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="messageLabel" destination="lE6-hL-beD" id="cVe-OO-ZzU"/>
+                                    <outlet property="postedImage" destination="IK4-xE-5HL" id="7RU-x4-3x8"/>
+                                    <outlet property="usernameLabel" destination="1vA-Ju-Viw" id="amM-B7-ytm"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wpe-2d-v1g" id="Wcc-Ii-har"/>
+                            <outlet property="delegate" destination="wpe-2d-v1g" id="qd1-vT-PMc"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hmr-pY-wlO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1772" y="-885"/>
         </scene>
         <!--Image Posting-->
         <scene sceneID="NiK-eb-q16">

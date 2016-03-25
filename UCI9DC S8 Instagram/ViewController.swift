@@ -135,16 +135,6 @@ class ViewController: UIViewController {
         }
         return true
     }
-    
-    private func displayError(withTitle title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-        alertController.addAction(
-            UIAlertAction(title: NSLocalizedString("OK", comment: "Auth form error alert action"), style: .Default, handler: { (action) -> Void in
-                self.dismissViewControllerAnimated(true, completion: nil)
-            })
-        )
-        presentViewController(alertController, animated: true, completion: nil)
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

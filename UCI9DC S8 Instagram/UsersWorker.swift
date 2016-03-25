@@ -32,16 +32,13 @@ class UsersWorker {
                 return
             }
 
-            let queryFollowers = PFQuery(className: "Followers")
-            queryFollowers.whereKey("follower", equalTo: currentUserId)
-            var followings: [PFObject]?
+            var followedUsers: [String]?
             do {
-                followings = try queryFollowers.findObjects()
+                followedUsers = try self.getFollowedUsers(byUserWithId: currentUserId)
             } catch let error as NSError {
                 dispatch_in_calling({ handler?(false, error) })
                 return
             }
-            let followingUsers = followings?.filter({$0["following"] as? String != nil}).map({ $0["following"] as! String })
 
             if let users = users {
                 var savedUserIds = [String]()
@@ -57,7 +54,7 @@ class UsersWorker {
                     if userId == currentUserId {
                         continue
                     }
-                    let followed = followingUsers?.indexOf(userId) != nil
+                    let followed = followedUsers?.indexOf(userId) != nil
                     do {
                         try User.createUpdateUser(withId: userId, name: user.username, isFollowed: followed, inContext: context)
                     } catch let error as NSError {
@@ -81,6 +78,36 @@ class UsersWorker {
                 dispatch_in_calling({ handler?(false, nil) })
             }
         })
+    }
+
+    func getFollowedUsers(byUserWithId userId: String) throws -> [String]? {
+        let queryFollowers = PFQuery(className: "Followers")
+        queryFollowers.whereKey("follower", equalTo: userId)
+        var followed: [PFObject]?
+        followed = try! queryFollowers.findObjects()
+        return followed?.filter({$0["following"] as? String != nil}).map({ $0["following"] as! String })
+    }
+
+    func getUserNames(byIds ids: [String]) throws -> [String: String]? {
+        let query = PFUser.query()
+        query?.whereKey("objectId", containedIn: ids)
+        let users = try query?.findObjects()
+        guard users != nil else {
+            return nil
+        }
+        var userNames = [String: String]()
+        for user in users! {
+            guard let userObject = user as? PFUser else {
+                NSLog("Unable to cast user \(user) to PFUser")
+                continue
+            }
+            guard let id = userObject.objectId, name = userObject.username else {
+                NSLog("Unable to get userId or username for \(userObject).")
+                continue
+            }
+            userNames[id] = name
+        }
+        return userNames
     }
 
     func followUser(withId id: String, inContext context: NSManagedObjectContext, handler: ((Bool) -> Void)?) {
