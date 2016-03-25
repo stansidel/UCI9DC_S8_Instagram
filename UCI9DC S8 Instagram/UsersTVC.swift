@@ -16,10 +16,18 @@ class UsersTVC: CoreDataTableViewController {
     override func viewDidLoad() {
         context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         super.viewDidLoad()
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(UsersTVC.updateData), forControlEvents: .AllEvents)
+        updateData()
+        initializeFetchedResultsController()
+    }
+
+    func updateData() {
+        refreshControl?.beginRefreshing()
         usersWorker.loadAllUsers(inContext: context) { (success, error) in
+            self.refreshControl?.endRefreshing()
             print("Loading users finished. \(success). \(error)")
         }
-        initializeFetchedResultsController()
     }
 
     override func didReceiveMemoryWarning() {
