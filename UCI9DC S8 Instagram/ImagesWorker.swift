@@ -74,12 +74,13 @@ class ImagesWorker {
                         }
                         feed.message = object["comment"] as? String
                         if let file = object["image"] as? PFFile {
-                            do {
-                                let data = try file.getData()
-                                feed.image = UIImage(data: data)
-                            } catch let error as NSError {
-                                NSLog("Unable to get image for \(object). Error: \(error.localizedDescription)")
-                            }
+//                            do {
+//                                let data = try file.getData()
+//                                feed.image = UIImage(data: data)
+//                            } catch let error as NSError {
+//                                NSLog("Unable to get image for \(object). Error: \(error.localizedDescription)")
+//                            }
+                            feed.imageToLoad = file
                         }
                         feeds.append(feed)
                     }
@@ -97,5 +98,41 @@ class ImagesWorker {
                 })
             }
         })
+    }
+
+    func loadImageForFeed(feed: Feed, handler: ((Feed, NSError?) -> Void)?) {
+        guard let file = feed.imageToLoad else {
+            handler?(feed, nil)
+            return
+        }
+        guard feed.image == nil else {
+            handler?(feed, nil)
+            return
+        }
+        func dispatch_in_calling(operation: ()->Void) {
+            dispatch_async(dispatch_get_main_queue(), {
+                operation()
+            })
+        }
+        file.getDataInBackgroundWithBlock { (data, error) in
+            if error == nil {
+                if let data = data {
+                    feed.image = UIImage(data: data)
+                    dispatch_in_calling({
+                        handler?(feed, nil)
+                    })
+                } else {
+                    NSLog("Unable to get image - data is empty. \(feed)")
+                    dispatch_in_calling({
+                        handler?(feed, nil)
+                    })
+                }
+            } else {
+                NSLog("Unable to get image for \(feed). Error: \(error!.localizedDescription)")
+                dispatch_in_calling({
+                    handler?(feed, error!)
+                })
+            }
+        }
     }
 }

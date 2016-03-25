@@ -8,9 +8,11 @@
 
 import Foundation
 import UIKit
+import Parse
 
 class Feed {
     var username: String?
     var message: String?
     var image: UIImage?
+    var imageToLoad: PFFile?
 }

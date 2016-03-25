@@ -10,6 +10,7 @@ import UIKit
 
 class FeedTVC: UITableViewController {
     private var feeds = [Feed]()
+    private let imagesWorker = ImagesWorker()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,17 @@ class FeedTVC: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("FeedCell", forIndexPath: indexPath) as! FeedTVCell
 
         let feed = feeds[indexPath.row]
+        if feed.image == nil && feed.imageToLoad != nil {
+            imagesWorker.loadImageForFeed(feed, handler: { (feed, error) in
+                if error == nil {
+                    let index = self.feeds.indexOf({ $0.imageToLoad != nil && feed.imageToLoad == $0.imageToLoad })
+                    if let index = index {
+                        let ip = NSIndexPath(forRow: index, inSection: 0)
+                        self.tableView.reloadRowsAtIndexPaths([ip], withRowAnimation: .None)
+                    }
+                }
+            })
+        }
         cell.postedImage.image = feed.image
         cell.usernameLabel.text = feed.username
         cell.messageLabel.text = feed.message
