@@ -26,6 +26,7 @@
 		F6D3BA3E1CA29A44006BC870 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3BA3D1CA29A44006BC870 /* CoreDataTableViewController.swift */; };
 		F6D5E82C1CA409E700A474DD /* ImagePostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5E82B1CA409E700A474DD /* ImagePostingViewController.swift */; };
 		F6D5E82E1CA40B7400A474DD /* ImagesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5E82D1CA40B7400A474DD /* ImagesWorker.swift */; };
+		F6F5A5621CA525CE00BD6CF8 /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6F5A5611CA525CE00BD6CF8 /* placeholder.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		F6D3BA3D1CA29A44006BC870 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		F6D5E82B1CA409E700A474DD /* ImagePostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePostingViewController.swift; sourceTree = "<group>"; };
 		F6D5E82D1CA40B7400A474DD /* ImagesWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesWorker.swift; sourceTree = "<group>"; };
+		F6F5A5611CA525CE00BD6CF8 /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		F6473D841C9E802E000E7D50 /* UCI9DC S8 Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				F6F5A5611CA525CE00BD6CF8 /* placeholder.jpg */,
 				F6473D851C9E802E000E7D50 /* AppDelegate.swift */,
 				F6D5E8301CA40BE000A474DD /* Models */,
 				F6D5E82F1CA40BCF00A474DD /* Controllers */,
@@ -196,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6473D931C9E802E000E7D50 /* LaunchScreen.storyboard in Resources */,
+				F6F5A5621CA525CE00BD6CF8 /* placeholder.jpg in Resources */,
 				F6473D901C9E802E000E7D50 /* Assets.xcassets in Resources */,
 				F6473D8B1C9E802E000E7D50 /* Main.storyboard in Resources */,
 			);

@@ -150,7 +150,7 @@
         <!--Image Posting-->
         <scene sceneID="NiK-eb-q16">
             <objects>
-                <viewController title="Image Posting" id="W5u-Bv-PK7" customClass="ImagePostingViewController" customModule="UCI9DC_S8_Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Image Posting" automaticallyAdjustsScrollViewInsets="NO" id="W5u-Bv-PK7" customClass="ImagePostingViewController" customModule="UCI9DC_S8_Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3NT-lJ-O5n"/>
                         <viewControllerLayoutGuide type="bottom" id="Est-tN-vxY"/>
@@ -159,50 +159,79 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7ox-MC-aEa">
-                                <rect key="frame" x="20" y="72" width="560" height="406"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zy2-Vm-d3o">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ix-QF-5o0">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="530"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="7ox-MC-aEa">
+                                                <rect key="frame" x="20" y="8" width="560" height="400"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" priority="250" constant="500" id="6HR-sc-ehn"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9X0-lz-ovu">
+                                                <rect key="frame" x="240" y="416" width="121" height="30"/>
+                                                <state key="normal" title="Choose An Image"/>
+                                                <connections>
+                                                    <action selector="chooseImage:" destination="W5u-Bv-PK7" eventType="touchUpInside" id="Olp-T8-6C4"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do you want to share?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qHZ-gm-K6O">
+                                                <rect key="frame" x="20" y="454" width="560" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="W5u-Bv-PK7" id="Neu-mV-5NP"/>
+                                                </connections>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Csg-zY-7tV">
+                                                <rect key="frame" x="262" y="492" width="77" height="30"/>
+                                                <state key="normal" title="Post Image"/>
+                                                <connections>
+                                                    <action selector="postImage:" destination="W5u-Bv-PK7" eventType="touchUpInside" id="oqd-qD-Omz"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Csg-zY-7tV" secondAttribute="bottom" constant="8" id="0Vu-6k-x8g"/>
+                                            <constraint firstItem="7ox-MC-aEa" firstAttribute="leading" secondItem="7ix-QF-5o0" secondAttribute="leading" constant="20" id="EFv-oW-bD9"/>
+                                            <constraint firstItem="Csg-zY-7tV" firstAttribute="top" secondItem="qHZ-gm-K6O" secondAttribute="bottom" constant="8" id="EhA-BB-wsf"/>
+                                            <constraint firstItem="9X0-lz-ovu" firstAttribute="top" secondItem="7ox-MC-aEa" secondAttribute="bottom" constant="8" id="LNs-2d-KGA"/>
+                                            <constraint firstItem="9X0-lz-ovu" firstAttribute="centerX" secondItem="7ix-QF-5o0" secondAttribute="centerX" id="WMR-ep-LST"/>
+                                            <constraint firstItem="qHZ-gm-K6O" firstAttribute="top" secondItem="9X0-lz-ovu" secondAttribute="bottom" constant="8" id="YcJ-8R-F5O"/>
+                                            <constraint firstItem="qHZ-gm-K6O" firstAttribute="leading" secondItem="7ix-QF-5o0" secondAttribute="leading" constant="20" id="Z6D-zT-u37"/>
+                                            <constraint firstItem="7ox-MC-aEa" firstAttribute="top" secondItem="7ix-QF-5o0" secondAttribute="top" constant="8" id="itI-Xt-XTK"/>
+                                            <constraint firstItem="Csg-zY-7tV" firstAttribute="centerX" secondItem="7ix-QF-5o0" secondAttribute="centerX" id="kyi-lv-ADO"/>
+                                            <constraint firstAttribute="trailing" secondItem="7ox-MC-aEa" secondAttribute="trailing" constant="20" id="mWR-01-F6x"/>
+                                            <constraint firstAttribute="trailing" secondItem="qHZ-gm-K6O" secondAttribute="trailing" constant="20" id="n2F-wn-0Sb"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" priority="250" constant="500" id="6HR-sc-ehn"/>
+                                    <constraint firstAttribute="bottom" secondItem="7ix-QF-5o0" secondAttribute="bottom" id="UGn-og-5HG"/>
+                                    <constraint firstAttribute="trailing" secondItem="7ix-QF-5o0" secondAttribute="trailing" id="Zyv-FJ-LsT"/>
+                                    <constraint firstItem="7ix-QF-5o0" firstAttribute="top" secondItem="Zy2-Vm-d3o" secondAttribute="top" id="b7d-Ik-OiA"/>
+                                    <constraint firstItem="7ix-QF-5o0" firstAttribute="leading" secondItem="Zy2-Vm-d3o" secondAttribute="leading" id="qfD-0q-iTf"/>
                                 </constraints>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What do you want to share?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qHZ-gm-K6O">
-                                <rect key="frame" x="20" y="524" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Csg-zY-7tV">
-                                <rect key="frame" x="262" y="562" width="77" height="30"/>
-                                <state key="normal" title="Post Image"/>
-                                <connections>
-                                    <action selector="postImage:" destination="W5u-Bv-PK7" eventType="touchUpInside" id="oqd-qD-Omz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9X0-lz-ovu">
-                                <rect key="frame" x="240" y="486" width="121" height="30"/>
-                                <state key="normal" title="Choose An Image"/>
-                                <connections>
-                                    <action selector="chooseImage:" destination="W5u-Bv-PK7" eventType="touchUpInside" id="Olp-T8-6C4"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7ox-MC-aEa" firstAttribute="leading" secondItem="Ocv-CT-r1j" secondAttribute="leadingMargin" id="1oL-Ut-eMF"/>
-                            <constraint firstItem="7ox-MC-aEa" firstAttribute="trailing" secondItem="Ocv-CT-r1j" secondAttribute="trailingMargin" id="6Lb-zI-Z5v"/>
-                            <constraint firstItem="qHZ-gm-K6O" firstAttribute="trailing" secondItem="Ocv-CT-r1j" secondAttribute="trailingMargin" id="7bx-hx-8Ww"/>
-                            <constraint firstItem="Est-tN-vxY" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Csg-zY-7tV" secondAttribute="bottom" constant="8" id="8W0-ar-JwJ"/>
-                            <constraint firstItem="qHZ-gm-K6O" firstAttribute="top" secondItem="9X0-lz-ovu" secondAttribute="bottom" constant="8" id="H7X-8Z-Yhh"/>
-                            <constraint firstItem="Csg-zY-7tV" firstAttribute="top" secondItem="qHZ-gm-K6O" secondAttribute="bottom" constant="8" id="LoL-sG-aee"/>
-                            <constraint firstItem="9X0-lz-ovu" firstAttribute="top" secondItem="7ox-MC-aEa" secondAttribute="bottom" constant="8" id="MGI-gD-DbW"/>
-                            <constraint firstItem="Csg-zY-7tV" firstAttribute="centerX" secondItem="Ocv-CT-r1j" secondAttribute="centerX" id="aTR-Gj-6J3"/>
-                            <constraint firstItem="9X0-lz-ovu" firstAttribute="centerX" secondItem="Ocv-CT-r1j" secondAttribute="centerX" id="iLF-pe-e9f"/>
-                            <constraint firstItem="qHZ-gm-K6O" firstAttribute="leading" secondItem="Ocv-CT-r1j" secondAttribute="leadingMargin" id="k7v-YE-tCw"/>
-                            <constraint firstItem="7ox-MC-aEa" firstAttribute="top" secondItem="3NT-lJ-O5n" secondAttribute="bottom" constant="8" id="vFN-Jz-Cfz"/>
+                            <constraint firstItem="Zy2-Vm-d3o" firstAttribute="leading" secondItem="Ocv-CT-r1j" secondAttribute="leadingMargin" constant="-20" id="Ixk-Cj-2Dc"/>
+                            <constraint firstItem="7ix-QF-5o0" firstAttribute="width" secondItem="Ocv-CT-r1j" secondAttribute="width" id="NOT-Mj-9MI"/>
+                            <constraint firstItem="Est-tN-vxY" firstAttribute="top" secondItem="Zy2-Vm-d3o" secondAttribute="bottom" id="QIg-b4-iHJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zy2-Vm-d3o" secondAttribute="trailing" constant="-20" id="biL-Sl-sPX"/>
+                            <constraint firstItem="Zy2-Vm-d3o" firstAttribute="top" secondItem="3NT-lJ-O5n" secondAttribute="bottom" id="nEp-w1-aDN"/>
+                            <constraint firstItem="7ix-QF-5o0" firstAttribute="height" secondItem="Ocv-CT-r1j" secondAttribute="height" constant="-70" id="p5c-1z-ypg"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="commentTextField" destination="qHZ-gm-K6O" id="Q1B-nt-ye0"/>
                         <outlet property="imageView" destination="7ox-MC-aEa" id="I1k-wA-0l4"/>
+                        <outlet property="scrollView" destination="Zy2-Vm-d3o" id="SMy-CT-X7B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xcL-ik-w6B" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -11,6 +11,7 @@ import UIKit
 class ImagePostingViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var scrollView: UIScrollView!
 
     private var imagePicker = UIImagePickerController()
 
@@ -21,6 +22,18 @@ class ImagePostingViewController: UIViewController {
         imagePicker.delegate = self
         imagePicker.sourceType = .PhotoLibrary
         imagePicker.allowsEditing = false
+
+        NSNotificationCenter.defaultCenter().addObserver(
+            self, selector: #selector(ImagePostingViewController.keyboardWasShown(_:)),
+            name: UIKeyboardDidShowNotification,
+            object: nil
+        )
+
+        NSNotificationCenter.defaultCenter().addObserver(
+            self, selector: #selector(ImagePostingViewController.keyboardWillBeHidden(_:)),
+            name: UIKeyboardWillHideNotification,
+            object: nil
+        )
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +64,42 @@ class ImagePostingViewController: UIViewController {
     }
     */
 
+    // MARK: - TextFields
+    private var activeField: UITextField?
+
+    // MARK: - Keyboard
+    private let keyboardTopPadding: CGFloat = 10.0
+
+    func keyboardWasShown(notification: NSNotification) {
+        guard let info = notification.userInfo else {
+            NSLog("Unable to get userInfo")
+            return
+        }
+        guard let kbFrame = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() else {
+            NSLog("Unable to get the keyboard frame")
+            return
+        }
+        let kbSize = kbFrame.size
+
+
+        let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height + keyboardTopPadding, right: 0.0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+
+        if let activeField = activeField {
+            var rect = view.frame
+            rect.size.height -= kbSize.height
+            if !rect.contains(activeField.frame.origin) {
+                scrollView.scrollRectToVisible(activeField.frame, animated: true)
+            }
+        }
+    }
+
+    func keyboardWillBeHidden(notification: NSNotification) {
+        let contentInsets = UIEdgeInsetsZero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
 }
 
 extension ImagePostingViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -59,3 +108,18 @@ extension ImagePostingViewController: UIImagePickerControllerDelegate, UINavigat
         dismissViewControllerAnimated(true, completion: nil)
     }
 }
+
+extension ImagePostingViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(textField: UITextField) {
+        activeField = textField
+    }
+    func textFieldDidEndEditing(textField: UITextField) {
+        activeField = nil
+    }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+
