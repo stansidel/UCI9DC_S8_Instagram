@@ -232,9 +232,11 @@
                         <outlet property="commentTextField" destination="qHZ-gm-K6O" id="Q1B-nt-ye0"/>
                         <outlet property="imageView" destination="7ox-MC-aEa" id="I1k-wA-0l4"/>
                         <outlet property="scrollView" destination="Zy2-Vm-d3o" id="SMy-CT-X7B"/>
+                        <segue destination="oSE-RZ-5kh" kind="unwind" identifier="Unwind" unwindAction="unwindImagePosted:" id="6lj-pA-QuT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xcL-ik-w6B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="oSE-RZ-5kh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1090" y="-137"/>
         </scene>

@@ -14,6 +14,15 @@ class ImagePostingViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
 
     private var imagePicker = UIImagePickerController()
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(frame: self.view.frame)
+        view.backgroundColor = UIColor(white: 1.0, alpha: 0.5)
+        view.hidesWhenStopped = true
+        view.activityIndicatorViewStyle = .Gray
+        view.center = self.view.center
+        self.view.addSubview(view)
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +57,23 @@ class ImagePostingViewController: UIViewController {
     @IBAction func postImage(sender: AnyObject) {
         if let image = imageView.image {
             let imagesWorker = ImagesWorker()
+            blockUI()
             imagesWorker.postImage(image, withComment: commentTextField.text) { (success, error) in
+                self.unblockUI()
                 print("Posting image. \(success), \(error?.localizedDescription)")
+                self.performSegueWithIdentifier("Unwind", sender: self)
             }
         }
+    }
+
+    private func blockUI() {
+        activityIndicator.startAnimating()
+        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+    }
+
+    private func unblockUI() {
+        activityIndicator.stopAnimating()
+        UIApplication.sharedApplication().endIgnoringInteractionEvents()
     }
 
     /*
